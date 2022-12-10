@@ -15,11 +15,13 @@ public class Capitulo2 {
 
         List<User> users = Arrays.asList(user1, user2, user3);
 
+        System.out.println("ForEach default");
         for (User user : users) {
             System.out.println(user.getName());
         }
 
         System.out.println();
+        System.out.println("ForEach Instantiating class Consumer");
         Consumer<User> display = new Consumer<User>() {
             @Override
             public void accept(User user) {
@@ -29,6 +31,7 @@ public class Capitulo2 {
         users.forEach(display);
 
         System.out.println();
+        System.out.println("ForEach with param Consumer");
         users.forEach(new Consumer<User>() {
             @Override
             public void accept(User user) {
@@ -37,6 +40,15 @@ public class Capitulo2 {
         });
 
         System.out.println();
-        users.forEach(u -> System.out.println(u.getName()));
+        System.out.println("Lambda");
+        Consumer<User> display1 = user -> System.out.println("Nome: " + user.getName());
+        users.forEach(display1);
+
+        System.out.println();
+        System.out.println("ForEach with method Lambda and param Consumer simplified");
+        users.forEach(u -> System.out.println(String.format("The name of user is %s", u.getName())));
+
+        System.out.println();
+        users.forEach(user -> user.makesModerator());
     }
 }

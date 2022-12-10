@@ -4,12 +4,12 @@ public class User {
 
     private String name;
     private int points;
-    private boolean moderatory;
+    private boolean moderator;
 
     public User(String name, int points) {
         this.name = name;
         this.points = points;
-        this.moderatory = false;
+        this.moderator = false;
     }
 
     public String getName() {
@@ -28,11 +28,15 @@ public class User {
         this.points = points;
     }
 
-    public boolean isModeratory() {
-        return moderatory;
+    public void makesModerator() {
+        this.moderator = true;
     }
 
-    public void setModeratory(boolean moderatory) {
-        this.moderatory = moderatory;
+    public boolean isModerator() {
+        return moderator;
+    }
+
+    public void setModerator(boolean moderator) {
+        this.moderator = moderator;
     }
 }
